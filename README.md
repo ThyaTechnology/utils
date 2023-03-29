@@ -1,5 +1,7 @@
 # ThyaTech utils
 
+This repository contains utility function to process images.
+
 ## Create environment
 
 ```bash
@@ -8,9 +10,31 @@ conda activate ThyaTech-utils
 pip install opencv-python
 ```
 
-## crop images
+## Crop images
 
+Usage:
 ```bash
-python crop.py --image balloon.jpg --xyxy 600 350 750 500 --image_out crop.jpg
-python crop.py --image balloon.jpg --xywh 600 350 150 150 --image_out crop.jpg
+usage: crop.py [-h] (--image IMAGE | --folder FOLDER) (--xyxy XYXY [XYXY ...] | --xywh XYWH [XYWH ...]) (--image_out IMAGE_OUT | --folder_out FOLDER_OUT) [--overwrite]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --image IMAGE         Path of an image to crop. (default: None)
+  --folder FOLDER       Path of a folder containing a list of images to crop. (default: None)
+  --xyxy XYXY [XYXY ...]
+                        Dimension of the rectangle to crop around, in the format X1Y1X2Y2. (default: None)
+  --xywh XYWH [XYWH ...]
+                        Dimension of the rectangle to crop around, in the format XYWH. (default: None)
+  --image_out IMAGE_OUT
+                        Path to save the cropped image. (default: None)
+  --folder_out FOLDER_OUT
+                        Path to of the folder to save the cropped images. (default: None)
+  --overwrite           Force the write of the image(s) if already existing (default: False)
+```
+
+Examples:
+```bash
+python crop.py --image images/balloon1.jpg --xyxy 600 350 750 500 --image_out images_cropped/balloon1.jpg
+python crop.py --image images/balloon1.jpg --xywh 600 350 150 150 --image_out images_cropped/balloon1.jpg
+python crop.py --folder images --xyxy 600 350 750 500 --folder_out images_cropped
+python crop.py --folder images --xywh 600 350 150 150 --folder_out images_cropped
 ```
