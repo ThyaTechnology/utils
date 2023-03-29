@@ -48,6 +48,7 @@ if args.folder is not None:
         args.folder) if f.endswith(tuple(IMG_EXT))]
 
 
+# Loop over the images
 for path_image, path_image_out in zip(path_images, path_images_out):
     # Read an image
     img = cv2.imread(path_image)
@@ -77,6 +78,11 @@ for path_image, path_image_out in zip(path_images, path_images_out):
     if os.path.exists(path_image_out) and not args.overwrite:
         raise Exception(
             f"The file {path_image_out} already exists. Use `--overwrite` to overwrite that file.")
+
+    # Prevent overwriting the input file
+    if path_image_out == path_image:
+        raise Exception(
+            f"The output file {path_image_out} correspond to the input file {path_image}. Overwriting the input file is not allowed.")
 
     # create folder to store image if does not exist yet
     if os.path.dirname(path_image_out) != "":
