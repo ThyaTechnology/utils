@@ -8,6 +8,7 @@ This repository contains utility function to process images.
 conda create -y -n ThyaTech-utils python=3.9
 conda activate ThyaTech-utils
 pip install opencv-python
+pip install thya
 ```
 
 ## Crop images
@@ -62,3 +63,49 @@ pip install opencv-python
 5. Run the python code to crop your images.
 
 `python crop.py --folder path/to/images/to/crop --xyxy 600 350 750 500 --folder_out path/to/images/once/cropped`
+
+
+## Run remote inference
+
+
+### Description
+
+```bash
+usage: infer.py [-h] (--image IMAGE | --folder FOLDER) [--project_id PROJECT_ID] [--api_key API_KEY]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --image IMAGE         Path of an image to infer. (default: None)
+  --folder FOLDER       Path of a folder containing a list of images to infer. (default: None)
+  --project_id PROJECT_ID
+                        ID of the project to infer from. (default: None)
+  --api_key API_KEY     API key from www.thya-technology.com. (default: None)
+```
+
+### Examples
+
+```bash
+python infer.py --image images/balloon1.jpg --api_key <FROM_THYA> --project_id <FROM_THYA>
+python infer.py --folder images --api_key <FROM_THYA> --project_id <FROM_THYA>
+```
+
+### How to use
+
+1. Clone this repository.
+
+`git clone https://github.com/ThyaTechnology/utils.git`
+
+2. Create a folder `path/to/images/to/infer` and place your images to infer in it.
+
+3. Create the python environement and install the libraries.
+
+```bash
+conda create -y -n ThyaTech-utils python=3.9
+conda activate ThyaTech-utils
+pip install opencv-python
+pip install thya
+```
+
+4. Run the python code to crop your images.
+
+`python infer.py --folder path/to/images/to/crop --api_key <FROM_THYA> --project_id <FROM_THYA>`

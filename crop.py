@@ -42,8 +42,8 @@ if args.image is not None:
 if args.folder is not None:
     if not os.path.exists(args.folder):
         raise Exception(f"The input folder {args.folder} does not exist.")
-    path_images = [os.path.join(args.folder, f) for f in os.listdir(
-        args.folder) if f.endswith(tuple(IMG_EXT))]
+    path_images = [os.path.join(args.folder, f) for f in sorted(os.listdir(
+        args.folder)) if f.endswith(tuple(IMG_EXT))]
     path_images_out = [os.path.join(args.folder_out, f) for f in os.listdir(
         args.folder) if f.endswith(tuple(IMG_EXT))]
 
