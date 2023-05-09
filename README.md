@@ -106,6 +106,6 @@ pip install opencv-python
 pip install thya
 ```
 
-4. Run the python code to crop your images.
+4. Run the python code to infer your images.
 
 `python infer.py --folder path/to/images/to/crop --api_key <FROM_THYA> --project_id <FROM_THYA>`
